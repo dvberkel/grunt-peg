@@ -14,9 +14,6 @@ Then add this line to your project's `grunt.js` gruntfile:
 grunt.loadNpmTasks('grunt-peg');
 ```
 
-[grunt]: http://gruntjs.com/
-[getting_started]: https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md
-
 Documentation
 -------------
 
@@ -38,10 +35,15 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release History
 ---------------
 
-_(Nothing yet)_
+The [release history][history] for `grunt-peg` can be viewed seperatly.
 
 License
 -------
 
 Copyright (c) 2012 Daan van Berkel  
 Licensed under the MIT license.
+
+
+[grunt]: http://gruntjs.com/
+[getting_started]: https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md
+[history]: https://github.com/dvberkel/grunt-peg/blob/master/HISTORY.md "Release history for grunt-peg"
