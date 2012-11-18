@@ -1,24 +1,38 @@
 {
   "name": "grunt-peg",
-  "version": "0.0.0",
   "description": "A grunt multi task that generates parsers from PEG grammars.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.0.0",
+  "homepage": "https://github.com/dvberkel/grunt-peg",
+  "author": {
+    "name": "Daan van Berkel",
+    "email": "daan.v.berkel.1980@gmail.com",
+    "url": "http://dvberkel.github.com/"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/dvberkel/grunt-peg.git"
   },
-  "keywords": [
-    "gruntplugin"
+  "bugs": {
+    "url": "https://github.com/dvberkel/grunt-peg/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dvberkel/grunt-peg/blob/master/LICENSE-MIT"
+    }
   ],
-  "author": "Daan van Berkel",
-  "license": "MIT",
-  "dependencies": {
-    "pegjs": "0.7.0"
+  "main": "grunt.js",
+  "bin": "bin/grunt-peg",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/grunt test"
   },
   "devDependencies": {
-    "grunt": "*"
-  }
+    "grunt": "~0.3.17"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
 }
