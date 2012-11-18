@@ -21,14 +21,13 @@ var grunt = require('grunt');
 */
 
 exports['peg'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
+  // setUp: function(done) {
+  //   grunt.file.write('test_data/a.js', grunt.helper('peg', "start = 'a'"));
+  //   done();
+  // },
   'helper': function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(grunt.helper('peg'), 'peg!!!', 'should return the correct value.');
+    var expected = grunt.file.read('test_data/a.js')
+    test.equal(grunt.helper('peg', "start = 'a'"), expected, 'should return a proper grammar');
     test.done();
-  }
+  },
 };
