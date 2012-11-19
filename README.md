@@ -20,9 +20,11 @@ Documentation
 ```javascript
 grunt.initConfig({
   peg: {
-    grammar: "grammar/example.peg",
-    exportVar: "Example.parser",
-    outputFile: "grammar/example.js"
+    example : {
+      grammar: "grammar/example.peg",
+      exportVar: "Example.parser",
+      outputFile: "grammar/example.js"
+    }
   }
 });
 ```
