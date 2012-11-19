@@ -1,7 +1,7 @@
 {
   "name": "grunt-peg",
   "description": "A grunt multi task that generates parsers from PEG grammars.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/dvberkel/grunt-peg",
   "author": {
     "name": "Daan van Berkel",
@@ -28,6 +28,9 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/grunt test"
+  },
+  "dependencies": {
+    "pegjs": "0.7.0"
   },
   "devDependencies": {
     "grunt": "~0.3.17"
