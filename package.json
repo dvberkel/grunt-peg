@@ -1,7 +1,7 @@
 {
   "name": "grunt-peg",
   "description": "A grunt multi task that generates parsers from PEG grammars.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/dvberkel/grunt-peg",
   "author": {
     "name": "Daan van Berkel",
