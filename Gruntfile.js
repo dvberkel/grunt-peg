@@ -31,21 +31,14 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     peg: {
       default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
+          grammar: 'test/fixtures/a.peg',
+          outputFile: 'tmp/default_options'
       },
       custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!',
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
+          grammar: 'test/fixtures/a.peg',
+          exportVar: 'Namespace.parser',
+          outputFile: 'tmp/custom_options'
+      }
     },
 
     // Unit tests.

@@ -8,43 +8,23 @@
 
 'use strict';
 
+var PEG = require('pegjs');
+
+var parserSource = function(grammar, exportVar){
+  exportVar = exportVar || 'module.exports';
+  var parser = PEG.buildParser(grammar);
+
+  return exportVar + ' = ' + parser.toSource() + ';';
+};
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('peg', 'Your task description goes here.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
-
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
-
-      // Handle options.
-      src += options.punctuation;
-
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
-    });
+  grunt.registerMultiTask('peg', 'Generates parsers from PEG grammars.', function() {
+    grunt.log.write(grunt.template.process('Generating parser from <%= grammar %>', this.data));
+    var grammar = grunt.file.read(this.data.grammar);
+    grunt.file.write(this.data.outputFile, parserSource(grammar, this.data.exportVar));
   });
-
 };
