@@ -13,6 +13,7 @@ Changes
 
 * Compatible with [grunt 0.4.1][grunt].
 
+[grunt]: http://gruntjs.com/
 [pull 3]: https://github.com/dvberkel/grunt-peg/pull/3
 [pull 2]: https://github.com/dvberkel/grunt-peg/pull/2
 [issue 4]: https://github.com/dvberkel/grunt-peg/issues/4
