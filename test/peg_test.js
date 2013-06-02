@@ -41,4 +41,13 @@ exports.peg = {
 
     test.done();
   },
+  passing_options: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/passing_options');
+    var expected = grunt.file.read('test/expected/passing_options');
+    test.equal(actual, expected, 'should describe what the passing option(s) behavior is.');
+
+    test.done();
+  },
 };

@@ -19,7 +19,7 @@ npm install grunt-peg --save-dev
 ```
 
 One the plugin has been installed, it may be enabled inside your
-Gruntfile with this line of JavaScript: 
+Gruntfile with this line of JavaScript:
 
 ```js
 grunt.loadNpmTasks('grunt-peg');
@@ -31,7 +31,7 @@ The "peg" task
 ### Overview
 
 In your project's Gruntfile, add a section named `peg` to the data
-object passed into `grunt.initConfig()`. 
+object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
@@ -63,6 +63,11 @@ Type: `String`
 Default value: 'module.exports'
 
 The variable used to assign the generated parser to.
+
+### target.options
+
+Type: `Object`
+Default value : `{ cache : false, trackLineAndColumn : false }`
 
 ### Usage Examples
 
@@ -102,13 +107,31 @@ grunt.initConfig({
 })
 ```
 
+#### Passing Options to PEG
+
+In this example a [PEG][] grammer as described in the file
+`grammar/example.peg` is used to generate parser
+`grammar/example.js`, the export variable being `Example.parser`.
+
+```js
+grunt.initConfig({
+  peg: {
+    example : {
+      grammar: "grammar/example.peg",
+      exportVar: "Example.parser",
+      options: { cache : true }
+    }
+  }
+})
+```
+
 Contributing
 ------------
 
 In lieu of a formal styleguide, take care to maintain the existing
 coding style. Add unit tests for any new or changed
 functionality. Lint and test your code using
-[Grunt](http://gruntjs.com/). 
+[Grunt](http://gruntjs.com/).
 
 Release History
 ---------------

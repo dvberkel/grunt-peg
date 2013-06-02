@@ -38,13 +38,23 @@ module.exports = function(grunt) {
           grammar: 'test/fixtures/a.peg',
           exportVar: 'Namespace.parser',
           outputFile: 'tmp/custom_options'
-      }
+      },
+      passing_options: {
+          grammar: 'test/fixtures/a.peg',
+          outputFile: 'tmp/passing_options',
+          options: { cache: true }
+      },
     },
 
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js'],
     },
+
+    // Bump version
+    bumpup: {
+      file: 'package.json'
+    }
 
   });
 
@@ -55,6 +65,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-bumpup');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
