@@ -23,7 +23,7 @@ module.exports = function(grunt) {
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('peg', 'Generates parsers from PEG grammars.', function() {
-    grunt.log.write(grunt.template.process('Generating parser from <%= grammar %>', this.data));
+    grunt.log.write(grunt.template.process('Generating parser from <%= grammar %>', this));
     var grammar = grunt.file.read(this.data.grammar);
     grunt.file.write(this.data.outputFile, parserSource(grammar, this.data.exportVar));
   });
