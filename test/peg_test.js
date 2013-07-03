@@ -50,4 +50,31 @@ exports.peg = {
 
     test.done();
   },
+  default_options_standard: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/default_options_standard');
+    var expected = grunt.file.read('test/expected/default_options');
+    test.equal(actual, expected, 'Unexpected parser generated for default_options_standard.');
+
+    test.done();
+  },
+  custom_options_standard: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/custom_options_standard');
+    var expected = grunt.file.read('test/expected/custom_options');
+    test.equal(actual, expected, 'Unexpected parser generated for custom_options_standard.');
+
+    test.done();
+  },
+  passing_options_standard: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/passing_options_standard');
+    var expected = grunt.file.read('test/expected/passing_options');
+    test.equal(actual, expected, 'Unexpected parser generated for passing_options_standard');
+
+    test.done();
+  },
 };
