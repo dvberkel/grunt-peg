@@ -25,10 +25,11 @@ module.exports = function(grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      exportVar: this.data.exportVar /* legacy option */ || 'module.exports',
-      cache: false,
-      trackLineAndColumn: false
+      exportVar: 'module.exports'
     });
+
+    // Legacy "exportVar" support.
+    if(this.data.exportVar) options.exportVar = this.data.exportVar;
 
     // Iterate over all src-dest file pairs.
     files.forEach(function(f) {
