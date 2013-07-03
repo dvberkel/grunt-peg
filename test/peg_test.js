@@ -76,5 +76,5 @@ exports.peg = {
     test.equal(actual, expected, 'Unexpected parser generated for passing_options_standard');
 
     test.done();
-  },
+  }
 };
