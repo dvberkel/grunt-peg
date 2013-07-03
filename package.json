@@ -42,7 +42,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "pegjs": "~0.7.0",
-    "extend": "~1.1.3"
+    "pegjs": "~0.7.0"
   }
 }

@@ -1,11 +1,8 @@
-grunt-peg
-=========
+# grunt-peg
 
 > A grunt multi task that generates parsers from PEG grammars.
 
-Getting Started
----------------
-
+## Getting Started
 This plugin requires Grunt `~0.4.1`
 
 If you haven't used [Grunt][] before, be sure to check out the
@@ -25,55 +22,31 @@ Gruntfile with this line of JavaScript:
 grunt.loadNpmTasks('grunt-peg');
 ```
 
-The "peg" task
---------------
+## The "peg" task
+_Run this task with the `grunt peg` command._
 
-### Overview
-
-In your project's Gruntfile, add a section named `peg` to the data
-object passed into `grunt.initConfig()`.
-
-```js
-grunt.initConfig({
-  peg: {
-    your_target: {
-      // Target-specific options go here.
-    },
-  },
-})
-```
+Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
 ### Options
 
-#### target.grammar
+Any specified option will be passed through directly to [PEG.js][], thus you can specify any option that PEG.js supports. See the [PEG.js documentation][] for a list of supported options.
 
-Type: `String`
+[PEG.js]: http://pegjs.majda.cz/
+[PEG.js documentation]: http://pegjs.majda.cz/documentation
 
-Location of the [PEG][] grammar definition.
+An additional option is supported:
 
-#### target.outputFile
-
-Type: `String`
-
-The destination of the generated parser.
-
-#### target.exportVar
-
+#### exportVar
 Type: `String`
 Default value: 'module.exports'
 
-The variable used to assign the generated parser to.
-
-### target.options
-
-Type: `Object`
-Default value : `{ cache : false, trackLineAndColumn : false }`
+The variable to which the generated parser will be assigned in the output file.
 
 ### Usage Examples
 
 #### Default Options
 
-In this example a [PEG][] grammer as described in the file
+In this example a [PEG][] grammar as described in the file
 `grammar/example.peg` is used to generate parser
 `grammar/example.js`. The default export variable is used,
 i.e. `module.exports`.
@@ -81,9 +54,9 @@ i.e. `module.exports`.
 ```js
 grunt.initConfig({
   peg: {
-    example : {
-      grammar: "grammar/example.peg",
-      outputFile: "grammar/example.js"
+    example: {
+      src: "grammar/example.peg",
+      dest: "grammar/example.js"
     }
   }
 })
@@ -91,7 +64,7 @@ grunt.initConfig({
 
 #### Custom Options
 
-In this example a [PEG][] grammer as described in the file
+In this example a [PEG][] grammar as described in the file
 `grammar/example.peg` is used to generate parser
 `grammar/example.js`, the export variable being `Example.parser`.
 
@@ -99,9 +72,9 @@ In this example a [PEG][] grammer as described in the file
 grunt.initConfig({
   peg: {
     example : {
-      grammar: "grammar/example.peg",
-      exportVar: "Example.parser",
-      outputFile: "grammar/example.js"
+      src: "grammar/example.peg",
+      dest: "grammar/example.js",
+      options: { exportVar: "Example.parser" }
     }
   }
 })
@@ -109,34 +82,39 @@ grunt.initConfig({
 
 #### Passing Options to PEG
 
-In this example a [PEG][] grammer as described in the file
+In this example a [PEG][] grammar as described in the file
 `grammar/example.peg` is used to generate parser
 `grammar/example.js`, the export variable being `Example.parser`.
+Both the task-specific `trackLineAndColumn` and target-specific
+`cache` options will be passed through to PEG.js.
 
 ```js
 grunt.initConfig({
   peg: {
+    options: { trackLineAndColumn: true },
     example : {
-      grammar: "grammar/example.peg",
-      exportVar: "Example.parser",
-      options: { cache : true }
+      src: "grammar/example.peg",
+      dest: "grammar/example.js",
+      options: {
+        exportVar: "Example.parser",
+        cache: true
+      }
     }
   }
 })
 ```
 
-Contributing
-------------
+## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing
 coding style. Add unit tests for any new or changed
 functionality. Lint and test your code using
 [Grunt](http://gruntjs.com/).
 
-Release History
----------------
+## Release History
 
-* Migrated to Grunt ~0.4.x
+* 2013-06-02   v0.2.0   Pass options to PEG.js
+* 2013-04-23   v0.1.0   Migrated to Grunt ~0.4.x
 
 [Grunt]: http://gruntjs.com/
 [Getting Started]: http://gruntjs.com/getting-started
