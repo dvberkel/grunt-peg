@@ -29,7 +29,9 @@ module.exports = function(grunt) {
     });
 
     // Legacy "exportVar" support.
-    if(this.data.exportVar) options.exportVar = this.data.exportVar;
+    if(this.data.exportVar) {
+      options.exportVar = this.data.exportVar;
+    }
 
     // Iterate over all src-dest file pairs.
     files.forEach(function(f) {
