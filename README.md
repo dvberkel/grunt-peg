@@ -113,8 +113,15 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2013-07-04   v0.3.0   Adhere to grunt's configuration convention
 * 2013-06-02   v0.2.0   Pass options to PEG.js
 * 2013-04-23   v0.1.0   Migrated to Grunt ~0.4.x
+
+## Contributors
+
+* [welwood08][]
+
+[welwood08]: https://github.com/welwood08
 
 [Grunt]: http://gruntjs.com/
 [Getting Started]: http://gruntjs.com/getting-started
