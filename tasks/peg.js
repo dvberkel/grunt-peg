@@ -25,7 +25,9 @@ module.exports = function(grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      exportVar: 'module.exports'
+      exportVar: 'module.exports',
+      // add the output: source option for new versions of peg.
+      output: 'source'
     });
 
     // Legacy "exportVar" support.
@@ -57,8 +59,12 @@ module.exports = function(grunt) {
       var parser = PEG.buildParser(grammar, options);
       time = Date.now() - time;
 
+      // check if it is a new version from peg
+      // that returns a string if the 'output' : 'source' option is specified
+      var source = typeof(parser) === 'string' ? parser: parser.toSource();
+
       // Save the parser.
-      grunt.file.write(f.dest, options.exportVar + ' = ' + parser.toSource() + ';');
+      grunt.file.write(f.dest, options.exportVar + ' = ' + source + ';');
 
       grunt.log.writeln('Parser "' + f.dest + '" generated in ' + time + 'ms.');
     });
