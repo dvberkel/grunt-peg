@@ -104,6 +104,12 @@ grunt.initConfig({
 })
 ```
 
+## PEG.js dependency
+
+As described in [issue #6][#6] sometimes the wrong PEG.js version 
+is downloaded by npm. The solution for now seems to be to call
+`npm cache clear`.
+
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing
@@ -127,3 +133,4 @@ functionality. Lint and test your code using
 [Getting Started]: http://gruntjs.com/getting-started
 [PEG]: https://npmjs.org/package/pegjs
 [Gruntfile]: http://gruntjs.com/sample-gruntfile
+[#6]: https://github.com/dvberkel/grunt-peg/pull/6
