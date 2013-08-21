@@ -106,7 +106,7 @@ grunt.initConfig({
 
 ## PEG.js dependency
 
-As described in [issue #6][#6] sometimes the wrong PEG.js version 
+As described in [issue #6][#6] sometimes the wrong PEG.js version
 is downloaded by npm. The solution for now seems to be to call
 `npm cache clear`.
 
@@ -119,6 +119,7 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2013-08-21   v1.0.0   Remove support for old-style options
 * 2013-07-04   v0.3.0   Adhere to grunt's configuration convention
 * 2013-06-02   v0.2.0   Pass options to PEG.js
 * 2013-04-23   v0.1.0   Migrated to Grunt ~0.4.x
