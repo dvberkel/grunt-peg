@@ -15,23 +15,10 @@ module.exports = function(grunt) {
     // Standard Grunt "src(s) -> dest" support.
     var files = this.files;
 
-    // Legacy "grammar -> outputFile" support.
-    if(this.data.grammar && this.data.outputFile) {
-      files.push({
-        src: [this.data.grammar],
-        dest: this.data.outputFile
-      });
-    }
-
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       exportVar: 'module.exports'
     });
-
-    // Legacy "exportVar" support.
-    if(this.data.exportVar) {
-      options.exportVar = this.data.exportVar;
-    }
 
     // Iterate over all src-dest file pairs.
     files.forEach(function(f) {

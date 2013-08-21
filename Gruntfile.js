@@ -31,29 +31,15 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     peg: {
       default_options: {
-          grammar: 'test/fixtures/a.peg',
-          outputFile: 'tmp/default_options'
-      },
-      custom_options: {
-          grammar: 'test/fixtures/a.peg',
-          exportVar: 'Namespace.parser',
-          outputFile: 'tmp/custom_options'
-      },
-      passing_options: {
-          grammar: 'test/fixtures/a.peg',
-          outputFile: 'tmp/passing_options',
-          options: { cache: true }
-      },
-      default_options_standard: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/default_options_standard'
       },
-      custom_options_standard: {
+      custom_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/custom_options_standard',
           options: { exportVar: 'Namespace.parser' }
       },
-      passing_options_standard: {
+      passing_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/passing_options_standard',
           options: { cache: true }
