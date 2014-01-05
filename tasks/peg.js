@@ -17,7 +17,8 @@ module.exports = function(grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      exportVar: 'module.exports'
+      exportVar: 'module.exports',
+      output: 'source'
     });
 
     // Iterate over all src-dest file pairs.
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
       time = Date.now() - time;
 
       // Save the parser.
-      grunt.file.write(f.dest, options.exportVar + ' = ' + parser.toSource() + ';');
+      grunt.file.write(f.dest, options.exportVar + ' = ' + parser + ';');
 
       grunt.log.writeln('Parser "' + f.dest + '" generated in ' + time + 'ms.');
     });
