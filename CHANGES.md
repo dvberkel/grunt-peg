@@ -1,6 +1,12 @@
 Changes
 =======
 
+1.1.0
+-----
+
+* [Issue #8][issue 8]
+* [Pull Request #9][pull 9]
+
 1.0.0
 -----
 
@@ -24,6 +30,8 @@ Changes
 * Compatible with [grunt 0.4.1][grunt].
 
 [grunt]: http://gruntjs.com/
+[pull 9]: https://github.com/dvberkel/grunt-peg/pull/9
+[issue 8]: https://github.com/dvberkel/grunt-peg/issues/8
 [issue 7]: https://github.com/dvberkel/grunt-peg/issues/7
 [pull 5]: https://github.com/dvberkel/grunt-peg/pull/5
 [pull 3]: https://github.com/dvberkel/grunt-peg/pull/3

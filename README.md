@@ -119,6 +119,7 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2014-01-05   v1.1.0   Support PEG 0.8.0
 * 2013-08-21   v1.0.0   Remove support for old-style options
 * 2013-07-04   v0.3.0   Adhere to grunt's configuration convention
 * 2013-06-02   v0.2.0   Pass options to PEG.js
@@ -127,8 +128,10 @@ functionality. Lint and test your code using
 ## Contributors
 
 * [welwood08][]
+* [mstefaniuk][]
 
 [welwood08]: https://github.com/welwood08
+[mstefaniuk]: https://github.com/mstefaniuk
 
 [Grunt]: http://gruntjs.com/
 [Getting Started]: http://gruntjs.com/getting-started
