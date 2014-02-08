@@ -104,6 +104,33 @@ grunt.initConfig({
 })
 ```
 
+##### Note on plugins
+
+If you want to pass plugins to PEG.js make sure that the plugin is
+installed and referenced by the module name. For example, for the
+[pegjs-coffee-plugin][] one should first install the plugin
+
+```js
+npm install --save-dev pegjs-coffee-plugin
+```
+
+and then configure the tasks with the module name.
+
+```js
+grunt.initConfig({
+  peg: {
+    options: { trackLineAndColumn: true },
+    example : {
+      src: "grammar/example.peg",
+      dest: "grammar/example.js",
+      options: {
+        plugins: [ "pegjs-coffee-plugin" ]
+      }
+    }
+  }
+})
+```
+
 ## PEG.js dependency
 
 As described in [issue #6][#6] sometimes the wrong PEG.js version
@@ -138,3 +165,4 @@ functionality. Lint and test your code using
 [PEG]: https://npmjs.org/package/pegjs
 [Gruntfile]: http://gruntjs.com/sample-gruntfile
 [#6]: https://github.com/dvberkel/grunt-peg/pull/6
+[pegjs-coffee-plugin]: https://github.com/Dignifiedquire/pegjs-coffee-plugin
