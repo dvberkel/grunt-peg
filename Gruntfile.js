@@ -43,6 +43,11 @@ module.exports = function(grunt) {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/passing_options_standard',
           options: { cache: true }
+      },
+      plugin_options: {
+          src: 'test/fixtures/coffee-plugin.peg',
+          dest: 'tmp/plugin_options_standard',
+          options: { plugins: [ 'pegjs-coffee-plugin' ] }
       }
     },
 
