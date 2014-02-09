@@ -146,6 +146,7 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2014-01-05   v1.2.0   Support plugins
 * 2014-01-05   v1.1.0   Support PEG 0.8.0
 * 2013-08-21   v1.0.0   Remove support for old-style options
 * 2013-07-04   v0.3.0   Adhere to grunt's configuration convention
