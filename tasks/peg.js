@@ -63,7 +63,13 @@ module.exports = function(grunt) {
       time = Date.now() - time;
 
       // Save the parser.
-      grunt.file.write(f.dest, options.exportVar + ' = ' + parser + ';');
+      if (f.angular != null){
+        var angularModule = "angular.module('"+ f.angular.module+"', []).factory('"+ f.angular.factory+"',function(){ return ";
+        grunt.file.write(f.dest, angularModule + parser + '});');
+      }else {
+        grunt.file.write(f.dest, options.exportVar + ' = ' + parser + ';');
+      }
+
 
       grunt.log.writeln('Parser "' + f.dest + '" generated in ' + time + 'ms.');
     });
