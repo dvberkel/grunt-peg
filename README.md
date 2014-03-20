@@ -104,6 +104,27 @@ grunt.initConfig({
 })
 ```
 
+#### Wrap in an Angular Factory
+
+It is also possible to wrap the generated parser in an Angular
+factory.
+
+```js
+grunt.initConfig({
+  peg: {
+    options: { trackLineAndColumn: true },
+    example : {
+      src: "grammar/example.peg",
+      dest: "grammar/example.js",
+      angular: {
+        module: "pegjs",
+        factory: "exampleParser"
+      }
+    }
+  }
+})
+```
+
 ##### Note on plugins
 
 If you want to pass plugins to PEG.js make sure that the plugin is
