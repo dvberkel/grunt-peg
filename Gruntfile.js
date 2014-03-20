@@ -48,6 +48,11 @@ module.exports = function(grunt) {
           src: 'test/fixtures/coffee-plugin.peg',
           dest: 'tmp/plugin_options_standard',
           options: { plugins: [ 'pegjs-coffee-plugin' ] }
+      },
+      angular_options: {
+          src: 'test/fixtures/a.peg',
+          dest: 'tmp/angular_options_standard',
+	  angular: { module: 'pegjs', factory: 'exampleParser' }
       }
     },
 

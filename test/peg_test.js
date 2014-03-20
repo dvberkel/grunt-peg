@@ -58,5 +58,14 @@ exports.peg = {
     test.equal(actual, expected, 'Unexpected parser generated for plugin_options_standard');
 
     test.done();
+  },
+  angular_options: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/angular_options_standard');
+    var expected = grunt.file.read('test/expected/angular_options');
+    test.equal(actual, expected, 'Unexpected parser generated for angular_options_standard');
+
+    test.done();
   }
 };
