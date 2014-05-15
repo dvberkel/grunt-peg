@@ -1,3 +1,11 @@
+/*
+ * grunt-peg
+ * https://github.com/dvberkel/grunt-peg
+ *
+ * Copyright (c) 2013 Daan van Berkel
+ * Licensed under the MIT license.
+ */
+
 'use strict';
 
 var grunt = require('grunt');
