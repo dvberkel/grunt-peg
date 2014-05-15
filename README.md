@@ -167,6 +167,7 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2014-03-20   v1.3.1   Add license headers to all source files
 * 2014-03-20   v1.3.0   Wrap in Angular Factory
 * 2014-01-05   v1.2.0   Support plugins
 * 2014-01-05   v1.1.0   Support PEG 0.8.0
