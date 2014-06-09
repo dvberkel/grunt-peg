@@ -37,10 +37,14 @@ Any specified option will be passed through directly to [PEG.js][], thus you can
 An additional option is supported:
 
 #### exportVar
-Type: `String`
+Type: `String` | `function`
 Default value: 'module.exports'
 
 The variable to which the generated parser will be assigned in the output file.
+
+If the `exportVar` is of type `function`, the function needs to return
+the variable as a `String`. The function gets passed the `src`
+variable to base the variable off.
 
 ### Usage Examples
 
@@ -75,6 +79,25 @@ grunt.initConfig({
       src: "grammar/example.peg",
       dest: "grammar/example.js",
       options: { exportVar: "Example.parser" }
+    }
+  }
+})
+```
+
+#### Dynamic `exportVar`
+
+In this example a [PEG][] grammar as described in the file
+`grammar/example.peg` is used to generate parser
+`grammar/example.js`, the export variable being defined via a function
+and will result in `example`.
+
+```js
+grunt.initConfig({
+  peg: {
+    example : {
+      src: "grammar/example.peg",
+      dest: "grammar/example.js",
+      options: { exportVar: function(src){ return path.basename(src[0], '.peg'); } }
     }
   }
 })

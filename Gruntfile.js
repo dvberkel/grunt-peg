@@ -8,6 +8,8 @@
 
 'use strict';
 
+var path = require('path');
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -52,7 +54,12 @@ module.exports = function(grunt) {
       angular_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/angular_options_standard',
-	  angular: { module: 'pegjs', factory: 'exampleParser' }
+          angular: { module: 'pegjs', factory: 'exampleParser' }
+      },
+      exportVar_options: {
+          src: 'test/fixtures/a.peg',
+          dest: 'tmp/exportVar_options_standard',
+          options: { exportVar: function(src){ return path.basename(src[0], '.peg'); } }
       }
     },
 

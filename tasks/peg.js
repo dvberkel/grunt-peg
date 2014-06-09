@@ -62,14 +62,24 @@ module.exports = function(grunt) {
       var parser = PEG.buildParser(grammar, options);
       time = Date.now() - time;
 
+      var exportVar = function(src){
+        if (typeof options.exportVar === 'string') {
+          return options.exportVar;
+        }
+        if (typeof options.exportVar === 'function') {
+          return options.exportVar(src);
+        }
+        grunt.log.warn('Unkown type \'' + (typeof options.exportVar) + '\' for exportVar, picking default');
+        return 'module.exports';
+      }
+
       // Save the parser.
       if (f.angular != null){
         var angularModule = "angular.module('"+ f.angular.module+"', []).factory('"+ f.angular.factory+"',function(){ return ";
         grunt.file.write(f.dest, angularModule + parser + '});');
       }else {
-        grunt.file.write(f.dest, options.exportVar + ' = ' + parser + ';');
+        grunt.file.write(f.dest, exportVar(src) + ' = ' + parser + ';');
       }
-
 
       grunt.log.writeln('Parser "' + f.dest + '" generated in ' + time + 'ms.');
     });
