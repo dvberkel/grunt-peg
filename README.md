@@ -139,9 +139,33 @@ grunt.initConfig({
     example : {
       src: "grammar/example.peg",
       dest: "grammar/example.js",
-      angular: {
-        module: "pegjs",
-        factory: "exampleParser"
+      options: {
+        angular: {
+          module: "pegjs",
+          factory: "exampleParser"
+        }
+      }
+    }
+  }
+})
+```
+
+#### Custom Wrapper
+
+It is also possible to wrap the generated parser in any code you
+want.
+
+```js
+grunt.initConfig({
+  peg: {
+    options: { trackLineAndColumn: true },
+    example : {
+      src: "grammar/example.peg",
+      dest: "grammar/example.js",
+      options: {
+        wrapper: function (src, parser) {
+          return 'define("example", [], function () { return ' + parser + '; });';
+        }
       }
     }
   }

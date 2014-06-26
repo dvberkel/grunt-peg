@@ -54,12 +54,29 @@ module.exports = function(grunt) {
       angular_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/angular_options_standard',
+          options: {
+            angular: { module: 'pegjs', factory: 'exampleParser' }
+          },
+          foo: 'bar'
+      },
+      angular_options_backcompat: {
+          src: 'test/fixtures/a.peg',
+          dest: 'tmp/angular_options_backcompat',
           angular: { module: 'pegjs', factory: 'exampleParser' }
       },
       exportVar_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/exportVar_options_standard',
           options: { exportVar: function(src){ return path.basename(src[0], '.peg'); } }
+      },
+      wrapper_options: {
+          src: 'test/fixtures/a.peg',
+          dest: 'tmp/wrapper_options_standard',
+          options: {
+            wrapper: function (src, parser) {
+              return 'define(function () { return ' + parser + '; });';
+            }
+          }
       }
     },
 
