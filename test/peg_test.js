@@ -76,12 +76,30 @@ exports.peg = {
 
     test.done();
   },
+  angular_options_backcompat: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/angular_options_backcompat');
+    var expected = grunt.file.read('test/expected/angular_options');
+    test.equal(actual, expected, 'Unexpected parser generated for angular_options_backcompat');
+
+    test.done();
+  },
   exportVar_options: function(test) {
     test.expect(1);
 
     var actual = grunt.file.read('tmp/exportVar_options_standard');
     var expected = grunt.file.read('test/expected/exportVar_options');
     test.equal(actual, expected, 'Unexpected parser generated for exportVar_options_standard');
+
+    test.done();
+  },
+  wrapper_options: function (test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/wrapper_options_standard');
+    var expected = grunt.file.read('test/expected/wrapper_options');
+    test.equal(actual, expected, 'Unexpected parser generated for wrapper_options_standard');
 
     test.done();
   }
