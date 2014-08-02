@@ -229,10 +229,12 @@ functionality. Lint and test your code using
 * [welwood08][]
 * [mstefaniuk][]
 * [bertrandgressier][]
+* [kmdavis][]
 
 [welwood08]: https://github.com/welwood08
 [mstefaniuk]: https://github.com/mstefaniuk
 [bertrandgressier]: https://github.com/bertrandgressier
+[kmdavis]: https://github.com/kmdavis
 
 [Grunt]: http://gruntjs.com/
 [Getting Started]: http://gruntjs.com/getting-started
