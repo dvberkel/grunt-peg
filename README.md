@@ -214,6 +214,7 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2014-08-02   v1.5.0   Custom wrapper
 * 2014-06-09   v1.4.0   Dynamic `exportVar`
 * 2014-05-15   v1.3.1   Add license headers to all source files
 * 2014-03-20   v1.3.0   Wrap in Angular Factory
