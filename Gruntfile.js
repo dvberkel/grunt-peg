@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       plugin_options: {
           src: 'test/fixtures/coffee-plugin.peg',
           dest: 'tmp/plugin_options_standard',
-          options: { plugins: [ 'pegjs-coffee-plugin' ] }
+          options: { plugins: [ './test/test_plugin' ] }
       },
       angular_options: {
           src: 'test/fixtures/a.peg',
@@ -100,6 +100,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-bumpup');
+  grunt.loadNpmTasks('grunt-exec');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
