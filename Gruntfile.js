@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       plugin_options: {
           src: 'test/fixtures/coffee-plugin.peg',
           dest: 'tmp/plugin_options_standard',
-          options: { plugins: [ 'pegjs-coffee-plugin' ] }
+          options: { plugins: [ './test/test_plugin' ] }
       },
       angular_options: {
           src: 'test/fixtures/a.peg',
