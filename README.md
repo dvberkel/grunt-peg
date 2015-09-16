@@ -214,6 +214,7 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2015-09-11   v2.0.0   Update version of PEG.js to 0.9.0
 * 2014-08-02   v1.5.0   Custom wrapper
 * 2014-06-09   v1.4.0   Dynamic `exportVar`
 * 2014-05-15   v1.3.1   Add license headers to all source files
@@ -231,11 +232,13 @@ functionality. Lint and test your code using
 * [mstefaniuk][]
 * [bertrandgressier][]
 * [kmdavis][]
+* [felixhao28][]
 
 [welwood08]: https://github.com/welwood08
 [mstefaniuk]: https://github.com/mstefaniuk
 [bertrandgressier]: https://github.com/bertrandgressier
 [kmdavis]: https://github.com/kmdavis
+[felixhao28]: https://github.com/felixhao28
 
 [Grunt]: http://gruntjs.com/
 [Getting Started]: http://gruntjs.com/getting-started
