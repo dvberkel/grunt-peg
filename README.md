@@ -1,4 +1,4 @@
-# grunt-peg
+# grunt-peg [![Build Status](https://travis-ci.org/dvberkel/grunt.svg?branch=master)](https://travis-ci.org/dvberkel/grunt)
 
 > A grunt multi task that generates parsers from PEG grammars.
 
