@@ -214,6 +214,7 @@ functionality. Lint and test your code using
 
 ## Release History
 
+* 2016-02-23   v2.0.1   Update `grunt` peer dependency
 * 2015-09-11   v2.0.0   Update version of PEG.js to 0.9.0
 * 2014-08-02   v1.5.0   Custom wrapper
 * 2014-06-09   v1.4.0   Dynamic `exportVar`
