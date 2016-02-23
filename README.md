@@ -3,7 +3,7 @@
 > A grunt multi task that generates parsers from PEG grammars.
 
 ## Getting Started
-This plugin requires Grunt `~0.4.1`
+This plugin requires Grunt `>=0.4.0`
 
 If you haven't used [Grunt][] before, be sure to check out the
 [Getting Started][] guide, as it explains how to create a
