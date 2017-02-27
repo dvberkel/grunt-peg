@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       custom_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/custom_options_standard',
-          options: { exportVar: 'Namespace.parser' }
+          options: { format: "globals", exportVar: 'Namespace.parser' }
       },
       passing_options: {
           src: 'test/fixtures/a.peg',
@@ -55,26 +55,22 @@ module.exports = function(grunt) {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/angular_options_standard',
           options: {
+            format: "angular",
             angular: { module: 'pegjs', factory: 'exampleParser' }
           },
           foo: 'bar'
       },
-      angular_options_backcompat: {
-          src: 'test/fixtures/a.peg',
-          dest: 'tmp/angular_options_backcompat',
-          angular: { module: 'pegjs', factory: 'exampleParser' }
-      },
       exportVar_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/exportVar_options_standard',
-          options: { exportVar: function(src){ return path.basename(src[0], '.peg'); } }
+          options: { format: "globals", exportVar: function(src){ return path.basename(src[0], '.peg'); } }
       },
       wrapper_options: {
           src: 'test/fixtures/a.peg',
           dest: 'tmp/wrapper_options_standard',
           options: {
             wrapper: function (src, parser) {
-              return 'define(function () { return ' + parser + '; });';
+              return '/* BEFORE */\n' + parser + '\n/* AFTER */\n';
             }
           }
       }
