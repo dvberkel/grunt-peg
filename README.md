@@ -31,20 +31,8 @@ Task targets, files and options may be specified according to the grunt [Configu
 
 Any specified option will be passed through directly to [PEG.js][], thus you can specify any option that PEG.js supports. See the [PEG.js documentation][] for a list of supported options.
 
-[PEG.js]: http://pegjs.majda.cz/
-[PEG.js documentation]: http://pegjs.majda.cz/documentation
-
-An additional option is supported:
-
-#### exportVar
-Type: `String` | `function`
-Default value: 'module.exports'
-
-The variable to which the generated parser will be assigned in the output file.
-
-If the `exportVar` is of type `function`, the function needs to return
-the variable as a `String`. The function gets passed the `src`
-variable to base the variable off.
+[PEG.js]: https://pegjs.org/
+[PEG.js documentation]: https://pegjs.org/documentation
 
 ### Usage Examples
 
@@ -52,8 +40,8 @@ variable to base the variable off.
 
 In this example a [PEG][] grammar as described in the file
 `grammar/example.peg` is used to generate parser
-`grammar/example.js`. The default export variable is used,
-i.e. `module.exports`.
+`grammar/example.js`. By default it generates the parser as a
+commonjs module.
 
 ```js
 grunt.initConfig({
@@ -70,7 +58,7 @@ grunt.initConfig({
 
 In this example a [PEG][] grammar as described in the file
 `grammar/example.peg` is used to generate parser
-`grammar/example.js`, the export variable being `Example.parser`.
+`grammar/example.js`, in the global variable `Example.parser`.
 
 ```js
 grunt.initConfig({
@@ -78,7 +66,7 @@ grunt.initConfig({
     example : {
       src: "grammar/example.peg",
       dest: "grammar/example.js",
-      options: { exportVar: "Example.parser" }
+      options: { format: "globals", exportVar: "Example.parser" }
     }
   }
 })
@@ -88,8 +76,8 @@ grunt.initConfig({
 
 In this example a [PEG][] grammar as described in the file
 `grammar/example.peg` is used to generate parser
-`grammar/example.js`, the export variable being defined via a function
-and will result in `example`.
+`grammar/example.js`, in the global variable that is returned from
+the function. In this case it will be `example`.
 
 ```js
 grunt.initConfig({
@@ -97,7 +85,10 @@ grunt.initConfig({
     example : {
       src: "grammar/example.peg",
       dest: "grammar/example.js",
-      options: { exportVar: function(src){ return path.basename(src[0], '.peg'); } }
+      options: {
+        format: "globals",
+        exportVar: function(src){ return path.basename(src[0], '.peg'); }
+      }
     }
   }
 })
@@ -119,6 +110,7 @@ grunt.initConfig({
       src: "grammar/example.peg",
       dest: "grammar/example.js",
       options: {
+        format: "globals",
         exportVar: "Example.parser",
         cache: true
       }
@@ -140,6 +132,7 @@ grunt.initConfig({
       src: "grammar/example.peg",
       dest: "grammar/example.js",
       options: {
+        format: "angular",
         angular: {
           module: "pegjs",
           factory: "exampleParser"

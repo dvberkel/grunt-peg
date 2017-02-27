@@ -18,28 +18,30 @@ module.exports = function(grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      exportVar: 'module.exports',
+      format: 'commonjs',
       output: 'source',
-      plugins: []
+      plugins: [],
+      wrapper: function (src, parser) {
+        return parser;
+      }
     });
 
-    // backwards compatibility:
-    if (this.data.angular && !options.angular) {
-      options.angular = this.data.angular;
-    }
+    if (options.output == "source" && options.format == "angular") {
+      options.format = "globals";
+      options.exportVar = "gruntPegParserForAngularFormat";
 
-    if (!options.wrapper) {
-      options.wrapper = function (src, parser) {
-        if (options.angular) {
-          return 'angular.module(\'' + options.angular.module + '\', []).factory(\'' + options.angular.factory + '\', function () { return ' + parser + '});';
-        } else {
-          if (typeof options.exportVar === 'function') {
-            return options.exportVar(src) + ' = ' + parser + ';';
-          } else {
-            return (typeof options.exportVar === 'string' ? options.exportVar : 'module.exports') + ' = ' + parser + ';';
-          }
-        }
-      };
+      // backwards compatibility:
+      if (this.data.angular && !options.angular) {
+        options.angular = this.data.angular;
+      }
+
+      if (options.angular) {
+        var userWrapper = options.wrapper;
+        options.wrapper = function (src, parser) {
+          var angularParser = parser + '\n(function () {\n  var parser = ' + options.exportVar + ';\n  delete gruntPegParserForAngularFormat;\n\n  angular.module(' + options.angular.module + ', []).factory(' + options.angular.factory + ', function () {\n    return parser;\n  });\n}());\n';
+          return userWrapper(src, angularParser);
+        };
+      }
     }
 
     // Iterate over all src-dest file pairs.
@@ -53,6 +55,10 @@ module.exports = function(grunt) {
           return true;
         }
       });
+
+      if (typeof options.exportVar === 'function') {
+        options.exportVar = options.exportVar(src);
+      }
 
       grunt.log.writeln('Generating parser from "' + src.join('", "') + '"...');
 
@@ -78,7 +84,7 @@ module.exports = function(grunt) {
 
       // Generate the parser.
       var time = Date.now();
-      var parser = PEG.buildParser(grammar, options);
+      var parser = PEG.generate(grammar, options);
       time = Date.now() - time;
 
       // Save the parser.
